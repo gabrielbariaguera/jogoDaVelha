@@ -19,7 +19,9 @@ const marcarQuadrado = (id) => {
         return;
     } 
     tabuleiro[id-1] = jogadorUser;
-    document.getElementById(id).textContent = jogadorUser;
+    const btn = document.getElementById(id);
+    btn.classList.add('selected-user');
+    btn.innerHTML = `<span>${jogadorUser}</span>`;
 
     if (verificarVencedor('X')) {
         alert('Você venceu!')
@@ -61,7 +63,9 @@ const jogadaBot = () => {
 
     const melhorJogada = encontrarMelhorJogada();
     tabuleiro[melhorJogada] = 'O';
-    document.getElementById((melhorJogada + 1).toString()).textContent = 'O';
+    const botBtn = document.getElementById((melhorJogada + 1).toString());
+    botBtn.classList.add('selected-user2');
+    botBtn.innerHTML = `<span>O</span>`;
    
     if (verificarVencedor('O')) {
         alert('Bot venceu!')

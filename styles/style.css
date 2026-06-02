@@ -4,22 +4,83 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background: radial-gradient( circle at 10% 10%, rgba(10,20,40,0.6), transparent 20%),
+                radial-gradient( circle at 90% 90%, rgba(20,10,40,0.6), transparent 20%),
+                #05060a;
+    color: #e6eef8;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-button {
+h1 {
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    color: #cfe8ff;
+    text-shadow: 0 0 8px rgba(80,180,255,0.12);
+}
+
+button.box {
     width: 10rem;
     height: 10rem;
     font-size: 3rem;
     margin: 0.5rem;
     cursor: pointer;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.06);
+    color: #cfd8e3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6), inset 0 -2px 8px rgba(255,255,255,0.02);
+}
+
+button.box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.7), 0 0 18px rgba(0,0,0,0.25);
+}
+
+button.box span {
+    font-weight: 700;
+    font-size: 3.5rem;
+}
+
+/* Neon styles for X (red) and O (blue) */
+.box.selected-user,
+.box.selected-user span {
+    color: #ff4d6d;
+    text-shadow: 0 0 8px rgba(255,77,109,0.9), 0 0 20px rgba(255,77,109,0.45);
+}
+
+.box.selected-user2,
+.box.selected-user2 span {
+    color: #4dd0ff;
+    text-shadow: 0 0 8px rgba(77,208,255,0.9), 0 0 20px rgba(77,208,255,0.45);
 }
 
 .reset-btn {
     font-size: 1.2rem;
     height: 3rem;
-    margin-top: 4rem;
+    margin-top: 2.5rem;
+    background: linear-gradient(90deg,#0b1220,#0c1024);
+    border: 1px solid rgba(255,255,255,0.06);
+    color: #cfe8ff;
+    padding: 0 1rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 0 12px rgba(0,0,0,0.25);
 }
 
 select {
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
+    background: rgba(0,0,0,0.35);
+    color: #cfe8ff;
+    border: 1px solid rgba(255,255,255,0.04);
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    button.box { width: 6.5rem; height: 6.5rem; font-size: 2rem }
+    button.box span { font-size: 2.2rem }
 }

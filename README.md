@@ -1,37 +1,68 @@
-# Jogo da Velha - Deploy no Vercel
+# Jogo da Velha
 
-Este repositório contém um site estático (HTML/CSS/JS). Instruções rápidas para publicar no Vercel.
+Projeto web de Jogo da Velha com interface em tema escuro neon, desenvolvido com HTML, CSS e JavaScript puro.
 
-Opção A — Deploy rápido com Vercel CLI
+## Visao geral
 
-1. Instale o Vercel CLI:
+O projeto possui dois modos de jogo:
+
+- `JXJ` (Jogador vs Jogador): dois usuarios jogam no mesmo dispositivo.
+- `JXIA` (Jogador vs IA): voce joga contra o bot, que usa minimax para escolher a melhor jogada.
+
+Visual atual:
+
+- Tema escuro com destaque neon.
+- `X` em vermelho neon.
+- `O` em azul neon.
+
+## Tecnologias
+
+- HTML5
+- CSS3
+- JavaScript (sem framework)
+
+## Estrutura do projeto
+
+```text
+jogoDaVelha/
+├─ index.html          # entrada principal (redireciona)
+├─ bot.html            # modo Jogador x IA
+├─ user.html           # modo Jogador x Jogador
+├─ js/
+│  ├─ bot.js           # logica da IA (minimax)
+│  └─ user.js          # logica do modo PvP
+└─ styles/
+	└─ style.css        # estilos e tema neon
+```
+
+## Como executar localmente
+
+Como e um site estatico, basta abrir um dos arquivos HTML no navegador:
+
+- `index.html` (entrada principal)
+- `bot.html` (JXIA)
+- `user.html` (JXJ)
+
+Se preferir rodar com servidor local simples:
+
+```bash
+npx serve .
+```
+
+## Regras do jogo
+
+- O tabuleiro tem 9 casas (3x3).
+- Ganha quem completar 3 simbolos iguais na horizontal, vertical ou diagonal.
+- Se todas as casas forem preenchidas sem vencedor, termina em empate.
+
+## Deploy no Vercel
+
+O projeto ja esta pronto para deploy estatico.
 
 ```bash
 npm i -g vercel
-```
-
-2. No diretório do projeto execute:
-
-```bash
 vercel login
-vercel              # para deploy de preview
-vercel --prod       # para publicar em produção
+vercel
+vercel --prod
 ```
 
-Opção B — Conectar um repositório Git
-
-1. Inicialize git, crie um repositório remoto (GitHub/GitLab/Bitbucket) e envie o código:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin <URL-DO-REPO>
-git push -u origin main
-```
-
-2. No dashboard do Vercel, clique em "New Project" → escolha o repositório → Deploy.
-
-Observações
-- O site é estático; não precisa de build por padrão.
-- Se quiser que eu faça o deploy automático, forneça autorização (token Vercel) ou conecte o repositório ao Vercel e eu posso orientar.
